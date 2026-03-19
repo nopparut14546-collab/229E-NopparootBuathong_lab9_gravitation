@@ -14,5 +14,17 @@ public class Gravitation : MonoBehaviour
         {
             otherObjects = new List<Gravitation>();
         }
+        otherObjects.Add(this);
+    }
+
+    void FixedUpdate()
+    {
+        foreach (Gravitation obj in otherObject)
+        {
+            if (obj != this)
+            {
+                AttractionForce(obj);
+            }
+        }
     }
 }
